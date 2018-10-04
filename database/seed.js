@@ -32,8 +32,8 @@ const productSchema = new mongoose.Schema({
 
 const Product = mongoose.model('Product', productSchema);
 
-const generateRandomData = () => {
-  for (let id = 1; id <= 100; id++) {
+const generateRandomData = (amount) => {
+  for (let id = 1; id <= amount; id++) {
     // let checkoutProduct = helper.generateRandomData(id);
     const newEntry = new Product(helper.generateRandomData(id));
     newEntry.save();
@@ -41,4 +41,5 @@ const generateRandomData = () => {
   console.log('Seed succesfully completed.')
 };
 
-generateRandomData();
+generateRandomData(100);
+

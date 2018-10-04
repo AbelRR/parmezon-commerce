@@ -14,7 +14,7 @@ module.exports.generateRandomData = (id) => {
   } else {
     obj.image = Math.floor(cats.data[id / 3]);
   }
-  
+
   obj.link = faker.lorem.sentence();
   obj.shares = Math.floor(Math.random() * 100) + 1;
   obj.price = faker.commerce.price();
