@@ -1,0 +1,82 @@
+config:
+  target: 'http://localhost:7777'
+  phases:
+  - duration: 60
+    arrivalRate: 50
+    rampTo: 1000
+    name: "Sustained max load"
+  - duration: 60
+    arrivalRate: 1500
+
+scenarios:
+  - flow:
+    - get:
+        url: "/checkout/{{$randomNumber(1, 10000000)}}"
+    - get:
+        url: "/checkout/{{$randomNumber(1, 10000000)}}"
+    - get:
+        url: "/checkout/{{$randomNumber(1, 10000000)}}"
+    - get:
+        url: "/checkout/{{$randomNumber(1, 10000000)}}"
+    - get:
+        url: "/checkout/{{$randomNumber(1, 10000000)}}"
+    - get:
+        url: "/checkout/{{$randomNumber(1, 10000000)}}"
+    - get:
+        url: "/checkout/{{$randomNumber(1, 10000000)}}"
+    - get:
+        url: "/checkout/{{$randomNumber(1, 10000000)}}"
+    - get:
+        url: "/checkout/{{$randomNumber(1, 10000000)}}"
+    - get:
+        url: "/checkout/{{$randomNumber(1, 10000000)}}"
+    - get:
+        url: "/checkout/{{$randomNumber(1, 10000000)}}"
+    - get:
+        url: "/checkout/{{$randomNumber(1, 10000000)}}"
+
+----
+All virtual users finished
+Summary report @ 16:00:29(-0700) 2018-10-08
+  Scenarios launched:  122200
+  Scenarios completed: 122200
+  Requests completed:  1466400
+  RPS sent: 698.89
+  Request latency:
+    min: 0.8
+    max: 1523.2
+    median: 25.3
+    p95: 185.5
+    p99: 336.9
+  Scenario counts:
+    0: 122200 (100%)
+  Codes:
+    200: 1466400
+
+#2
+    config:
+  target: 'http://localhost:7777'
+  phases:
+    - duration: 20
+      arrivalRate: 1200
+      rampTo: 2000
+    - duration: 20
+      arrivalRate: 2200
+      rampTo: 4000
+    ---
+    All virtual users finished
+Summary report @ 16:36:34(-0700) 2018-10-08
+  Scenarios launched:  95070
+  Scenarios completed: 95070
+  Requests completed:  380280
+  RPS sent: 731.25
+  Request latency:
+    min: 1
+    max: 4142.8
+    median: 7.9
+    p95: 92.8
+    p99: 302.2
+  Scenario counts:
+    0: 95070 (100%)
+  Codes:
+    200: 380280

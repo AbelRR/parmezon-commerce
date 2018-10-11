@@ -1,0 +1,23 @@
+config:
+  target: 'http://localhost:7777'
+  phases:
+    - pause: 60
+    - duration: 60
+      arrivalRate: 500
+
+scenarios:
+  - flow:
+    # - loop:
+      - get:
+          url: "/checkout/{{$randomNumber(1, 10000000)}}"
+    # count: 1
+
+
+# # scenarios:
+# #   - flow:
+#     - loop:
+#         - get:
+#             url: "/checkout/{{$randomNumber(1, 10000000)}}"
+        # - post:
+        #     url: "/checkout"
+#     count: 20

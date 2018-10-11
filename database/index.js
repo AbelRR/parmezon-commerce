@@ -3,7 +3,6 @@ const helper = require('./helpers/dataGenerator.js');
 require('dotenv').config();
 mongoose.connect( process.env.MLAB_DB_URI || 'mongodb://abel:password1@ds113853.mlab.com:13853/sidebar'); //
 
-
 const productSchema = new mongoose.Schema({
   product_id: Number,
   name: String,
@@ -68,6 +67,6 @@ const deleteById = (product_id) => {
 module.exports = {
   retrieveInformationById,
   generateRandomData,
-  updateById,
   deleteById,
+  updateById,
 };

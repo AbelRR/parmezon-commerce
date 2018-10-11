@@ -22,10 +22,13 @@
     "express": "^4.16.3",
     "faker": "^4.1.0",
     "mongoose": "^5.2.13",
+    "newrelic": "^4.9.0",
     "nodemon": "^1.18.4",
+    "pg": "^7.5.0",
     "puppeteer": "^1.8.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
+    "redis": "^2.8.0",
     "save-dev": "^2.0.0"
   },
   "devDependencies": {
