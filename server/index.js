@@ -10,16 +10,16 @@ const path = require('path');
 const pg = require('../database/postgreSQL.js');
 const controllers = require('../database/controllers.js')
 
-const redis = require('redis');
-const client = redis.createClient();
+// const redis = require('redis');
+// const client = redis.createClient();
 
-client.on('ready',function() {
-  console.log("Redis is ready");
-});
+// client.on('ready',function() {
+//   console.log("Redis is ready");
+// });
 
-client.on('error', function (err) {
-  console.log('Redis Error:', err); // errors here
-});
+// client.on('error', function (err) {
+//   console.log('Redis Error:', err); // errors here
+// });
 
 pg.connect((err) => {
   if(err) throw err;
@@ -34,20 +34,20 @@ app.use((req, res, next) => {
 app.use(cors( { origin: 'http://localhost:3000'} ));
 app.use(express.static('./client/dist'));
 
-function cache(req, res, next) {
+// function cache(req, res, next) {
 
-  client.get(req.originalUrl.split('/')[2], function (err, data) {
-      if (err) throw err;
+//   client.get(req.originalUrl.split('/')[2], function (err, data) {
+//       if (err) throw err;
 
-      if (data != null) {
-          res.send(JSON.parse(data));
-      } else {
-          next();
-      }
-  });
-}
+//       if (data != null) {
+//           res.send(JSON.parse(data));
+//       } else {
+//           next();
+//       }
+//   });
+// }
 
-app.get('/checkout/*', cache, (req, res) => {
+app.get('/checkout/*', (req, res) => { //app.get('/checkout/*', cache, (req, res) => {
   const productId = req.originalUrl.split('/')[2];
   controllers.getItem(productId, (err, data) => {
       if (err) {
@@ -78,7 +78,7 @@ app.get('/checkout/*', cache, (req, res) => {
           protection_id: 100000,
         };
 
-        client.set(productId, JSON.stringify(dataObject))
+        // client.set(productId, JSON.stringify(dataObject))
         res.send(dataObject);
       }
     });

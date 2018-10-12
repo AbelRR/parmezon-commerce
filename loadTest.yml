@@ -1,15 +1,15 @@
 config:
   target: 'http://localhost:7777'
   phases:
-    - pause: 60
+    # - pause: 30
     - duration: 60
-      arrivalRate: 500
+      arrivalRate: 200
 
 scenarios:
   - flow:
     # - loop:
-      - get:
-          url: "/checkout/{{$randomNumber(1, 10000000)}}"
+    - get:
+        url: "/checkout/{{$randomNumber(1, 10000000)}}"
     # count: 1
 
 
