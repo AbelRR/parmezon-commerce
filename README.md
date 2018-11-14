@@ -1,4 +1,4 @@
-# Project Name
+# Scaled Eggplant
 
 > Scaled backend infrastructure for Parmezon Commerce: Checkout Navigation Component. 
 
