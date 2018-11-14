@@ -1,13 +1,6 @@
 # Project Name
 
-> Project description
-
-## Related Projects
-
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+> Scaled backend infrastructure for Parmezon Commerce: Checkout Navigation Component. 
 
 ## Table of Contents
 
@@ -17,7 +10,10 @@
 
 ## Usage
 
-> Some usage instructions
+```
+"react-dev": starts webpack
+"start": starts server
+```
 
 ## Requirements
 
@@ -35,5 +31,6 @@ From within the root directory:
 ```sh
 npm install -g webpack
 npm install
+npm run seed
 ```
 
